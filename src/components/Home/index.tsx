@@ -1,7 +1,7 @@
 import styles from "./index.module.scss";
 import React, { useEffect, useState, useRef } from "react";
 import { apiUrl } from "../../components/Constants/api";
-import { coinsType } from "./type";
+import { coinsType } from "../Constants/type";
 import Item from "./Item";
 
 const Home: React.FC = () => {
@@ -36,38 +36,38 @@ const Home: React.FC = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  const onSortByPrice = (e: any) => {
+  const onSortByPrice = () => {
     let sort =
       coinData &&
       coinData.sort((a, b) => {
         return +a.price - +b.price;
       });
     dataRef.current = sort;
-    setCoinData([...sort]);
+    setCoinData(sort ? [...sort] : undefined);
   };
 
-  const onSortByCap = (e: any) => {
+  const onSortByCap = () => {
     let sort =
       dataRef.current &&
       dataRef.current.sort((a, b) => {
         return +a.marketCap - +b.marketCap;
       });
     dataRef.current = sort;
-    setCoinData([...sort]);
+    setCoinData(sort ? [...sort] : undefined);
   };
 
-  const onSortByChange = (e: any) => {
+  const onSortByChange = () => {
     let sort =
       dataRef.current &&
       dataRef.current.sort((a, b) => {
         return +a.change - +b.change;
       });
     dataRef.current = sort;
-    setCoinData([...sort]);
+    setCoinData(sort ? [...sort] : undefined);
   };
 
   const onSearch = (e: any) => {
-    let dataFilter =
+    let dataFilter: any =
       dataRef.current &&
       dataRef.current.filter((o: any) => {
         return o.name.toLowerCase().includes(e.target.value.toLowerCase());
@@ -80,7 +80,7 @@ const Home: React.FC = () => {
 
   const onCancel = (e: any) => {
     e.preventDefault();
-    setCoinData();
+    setCoinData(undefined);
     const { price, change, cap } = e.target;
     let inputTern = [price, change, cap];
     inputTern.map((e, i) => {

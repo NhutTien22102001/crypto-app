@@ -1,16 +1,18 @@
+/* eslint-disable @next/next/no-img-element */
+/* eslint-disable jsx-a11y/alt-text */
 import { useRouter } from "next/router";
 import React, { useEffect, useState } from "react";
 import styles from "./index.module.scss";
 import { apiUrl } from "../../components/Constants/api";
-import { coinType } from "../Home/type";
+import { coinType } from "../Constants/type";
 
 const Coin: React.FC = () => {
   const [data, setData] = useState<coinType>();
+  const { detail } = apiUrl;
 
   const getData = async (id: string) => {
     const key = "coinranking43e08f59f038992d39299a357d70a5c20bd8b01261a21ad2";
     const proxy = "https://cors-anywhere.herokuapp.com/";
-    const { detail } = apiUrl;
 
     await fetch(`${proxy}${detail}${id}`, {
       method: "GET",

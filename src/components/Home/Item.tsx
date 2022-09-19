@@ -1,6 +1,8 @@
+/* eslint-disable @next/next/no-img-element */
+/* eslint-disable jsx-a11y/alt-text */
 import React from "react";
 import Link from "next/link";
-import { coinType } from "./type";
+import { coinType } from "../Constants/type";
 import styles from "./Item.module.scss";
 
 type Props = {

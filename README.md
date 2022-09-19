@@ -8,6 +8,8 @@ First, run the development server:
 npm run dev
 # or
 yarn dev
+
+access proxy api if api not working : https://cors-anywhere.herokuapp.com/
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
