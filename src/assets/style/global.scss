@@ -1,0 +1,26 @@
+@mixin screen($breakpoint) {
+    //the name of the mixin is devices
+  
+    @if $breakpoint == LG {
+      @media only screen and (max-width: 1024px) {
+        @content;
+      }
+    }
+    @if $breakpoint == MD {
+      @media only screen and (max-width: 768px) {
+        @content;
+      }
+    }
+    @if $breakpoint == SM {
+      @media only screen and (max-width: 425px) {
+        @content;
+      }
+    }
+    @if $breakpoint == XS {
+      @media only screen and (max-width: 375px) {
+        @content;
+      }
+    }
+  }
+
+  
